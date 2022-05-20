@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>org.example.HelloWorldPlugin</id>
+    <name>HelloWorldPlugin</name>
+    <id>org.example.HelloWorldPlugin</id>
+    // name标签中的内容就是我们的插件名字
+    <name>HelloWorldPlugin</name>
+    // 联系邮箱，网站，公司，这个标签也可以删除。关系不大
+    <vendor email="hongjinfeng@github.com" url="https://github.com/HongJinFeng">Juejin</vendor>
+    // 插件描述信息
+    <description><![CDATA[
+        <h2>HelloWord</h2>
+        <p>这是我的第一个插件，名字叫做HelloWord。</p><br>
+        <p>让我们在知识的海洋中快乐的学习。</p><br>
+        <p>我要变强，我要变强 ，我要变强。</p><br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <p>1.0.0</p>
+      <p>1. 搭建项目框架</p>
+    ]]>
+    </change-notes>
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- 在此处添加你的Action -->
+        <action id="hello world" class="org.example.action.HelloWorldAction" description="Hello world">
+            <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>
