@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>org.example.Translator</id>
+    <name>Translator</name>
+    <vendor email="2544324090@qq.com"/>
+
+    <description><![CDATA[
+    <h1>Translator<h1><br>
+    <p>这是一个翻译插件，翻译插件基于百度翻译API，提供了在IDE中翻译的能力<p><br>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="org.example.extension.TranslatorSettingConfiguration"
+                id="org.example.TranslatorSettingConfiguration"
+                displayName="Translator"/>
+    </extensions>
+
+    <actions>
+        <action id="translator" class="org.example.action.TranslatorAction" description="Translate" text="Translate">
+            <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
