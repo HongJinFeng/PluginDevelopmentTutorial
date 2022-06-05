@@ -16,11 +16,11 @@ public class TranslatorAction extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent e) {
         Editor editor = e.getData(CommonDataKeys.EDITOR);
         if (TranslatorUtils.appid == null || TranslatorUtils.securityKey == null) {
-            Notifications.Bus.notify(new Notification("Translator", "小天才翻译机", "请先设置appID，securityKey", NotificationType.ERROR), e.getProject());
+            Notifications.Bus.notify(new Notification("Print", "小天才翻译机", "请先设置appID，securityKey", NotificationType.ERROR), e.getProject());
             return;
         }
         String text = editor.getSelectionModel().getSelectedText();
         String transResult = TranslatorUtils.getTransResult(text, "auto", "zh");
-        Notifications.Bus.notify(new Notification("Translator", "小天才翻译机", transResult, NotificationType.INFORMATION), e.getProject());
+        Notifications.Bus.notify(new Notification("Print", "小天才翻译机", transResult, NotificationType.INFORMATION), e.getProject());
     }
 }

@@ -3,7 +3,6 @@ package org.example.extension;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.ui.JBColor;
-import org.example.util.TranslatorUtils;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -21,21 +20,29 @@ public class TranslatorSettingConfiguration implements Configurable {
 
     public TranslatorSettingConfiguration() {
         this.component = new JPanel();
-        this.component.setSize(200, 20);
         this.component.setLayout(new GridLayout(15, 1));
 
         // 创建appID、securityKey文本框
         this.appID = new JTextField();
         this.securityKey = new JTextField();
 
-        //设置输入框提示语
-        this.appID.setText(appIDHint);
-        this.appID.setForeground(JBColor.GRAY);
         this.appID.addFocusListener(new TextFieldListener(this.appID, appIDHint));
+        if (TranslatorSetting.getInstance().appID != null) {
+            this.appID.setText(TranslatorSetting.getInstance().appID);
+        } else {
+            //设置输入框提示语
+            this.appID.setText(appIDHint);
+            this.appID.setForeground(JBColor.GRAY);
+        }
 
-        this.securityKey.setText(securityKeyHint);
-        this.securityKey.setForeground(JBColor.GRAY);
         this.securityKey.addFocusListener(new TextFieldListener(this.securityKey, securityKeyHint));
+        if (TranslatorSetting.getInstance().securityKey != null) {
+            this.securityKey.setText(TranslatorSetting.getInstance().securityKey);
+        } else {
+            //设置输入框提示语
+            this.securityKey.setText(securityKeyHint);
+            this.securityKey.setForeground(JBColor.GRAY);
+        }
 
         this.component.add(this.appID);
         this.component.add(this.securityKey);
@@ -58,8 +65,8 @@ public class TranslatorSettingConfiguration implements Configurable {
 
     @Override
     public void apply() throws ConfigurationException {
-        TranslatorUtils.appid = appID.getText();
-        TranslatorUtils.securityKey = securityKey.getText();
+        TranslatorSetting.getInstance().appID = appID.getText();
+        TranslatorSetting.getInstance().securityKey = securityKey.getText();
     }
 
     static class TextFieldListener implements FocusListener {

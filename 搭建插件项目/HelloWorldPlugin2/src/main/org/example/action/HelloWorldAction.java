@@ -21,6 +21,6 @@ public class HelloWorldAction extends AnAction {
          * e.getProject() 是一个获取到当前IDE所打开项目在代码中的对象抽象表示的API。
          *  本处表示在我们当前IDE中所打开的项目进行提示，若我们同时打开多个IDE，其他IDE项目中不会收到改消息。
          */
-        Notifications.Bus.notify(new Notification("HelloWorld", "我的第一个插件", "Hello, World, " + System.currentTimeMillis(), NotificationType.INFORMATION), e.getProject());
+        Notifications.Bus.notify(new Notification("Print", "我的第一个插件", "Hello, World, " + System.currentTimeMillis(), NotificationType.INFORMATION), e.getProject());
     }
 }
