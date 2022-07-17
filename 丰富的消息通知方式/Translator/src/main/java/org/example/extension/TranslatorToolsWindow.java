@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class TranslatorToolsWindow implements ToolWindowFactory {
 
     private static JTable table;
+    public static TranslatorWindow translatorWindow;
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
@@ -25,6 +26,7 @@ public class TranslatorToolsWindow implements ToolWindowFactory {
         // TranslatorNote note = new TranslatorNote();
         // table = note.getTable();
         TranslatorWindow translatorWindow = new TranslatorWindow();
+        TranslatorToolsWindow.translatorWindow = translatorWindow;
         table = translatorWindow.getNoteTable();
         // 在界面工厂中创建翻译插件的界面
         Content content = contentFactory.createContent(translatorWindow.getMainPanel(), "", false);
@@ -64,4 +66,5 @@ public class TranslatorToolsWindow implements ToolWindowFactory {
         DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.addRow(new Object[]{from, to});
     }
+
 }

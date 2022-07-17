@@ -1,0 +1,54 @@
+<idea-plugin>
+    <id>org.example.Translator</id>
+    <name>Translator</name>
+    <vendor email="2544324090@qq.com"/>
+
+    <description><![CDATA[
+    <h1>Translator<h1><br>
+    <p>这是一个翻译插件，翻译插件基于百度翻译API，提供了在IDE中翻译的能力<p><br>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <applicationConfigurable
+                parentId="tools"
+                instance="org.example.extension.TranslatorSettingConfiguration"
+                id="org.example.TranslatorSettingConfiguration"
+                displayName="Translator"/>
+
+        <applicationService serviceImplementation="org.example.extension.TranslatorSetting"/>
+
+        <projectService serviceImplementation="org.example.extension.TranslatorCache"/>
+
+        <toolWindow id="Translator" anchor="right" factoryClass="org.example.extension.TranslatorToolsWindow"
+                    icon="TranslatorIcons.TRANS"/>
+
+    </extensions>
+
+    <projectListeners>
+        <listener class="org.example.listener.InitTranslatorWindowListener"
+                  topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+
+        <listener class="org.example.listener.TranslatorSettingListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+
+        <listener class="org.example.listener.GlobalProblemListener"
+                  topic="com.intellij.analysis.problemsView.ProblemsListener"/>
+
+        <listener class="org.example.listener.TranslatorActionListenerA"
+                  topic="org.example.listener.TranslateListener"/>
+
+        <listener class="org.example.listener.TranslatorActionListenerB"
+                  topic="org.example.listener.TranslateListener"/>
+    </projectListeners>
+    <actions>
+
+        <action id="translator" class="org.example.action.TranslatorAction" description="Translate" text="Translate"
+                icon="TranslatorIcons.TRANS">
+            <keyboard-shortcut first-keystroke="control shift 9" keymap="$default"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

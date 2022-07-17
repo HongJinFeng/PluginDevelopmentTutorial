@@ -58,6 +58,9 @@ public class TranslatorToolsWindow implements ToolWindowFactory {
     }
 
     public static void addNote(String from, String to) {
+        if (table == null) {
+            return;
+        }
         DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
         tableModel.addRow(new Object[]{from, to});
     }
