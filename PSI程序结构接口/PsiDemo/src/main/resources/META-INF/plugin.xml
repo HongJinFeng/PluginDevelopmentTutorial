@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>org.example.PsiDemo</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action class="org.example.action.PsiFileDemoAction" description="PsiFileDemo"
+                text="PsiFileDemo">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action class="org.example.action.GetImportPackageAction" description="GetImportPackage"
+                text="GetImportPackage">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action class="org.example.action.GetRestfulAPIMethodAction" description="GetRestfulAPIMethodAction"
+                text="GetRestfulAPIMethodAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action class="org.example.action.GetLocalVariableMethod" description="GetLocalVariableMethod"
+                text="GetLocalVariableMethod">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action class="org.example.action.RenameElementAction" description="RenameElement"
+                text="RenameElement">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action class="org.example.action.GetMethodParamAction" description="GetMethodParam"
+                text="GetMethodParam">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
