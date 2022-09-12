@@ -1,15 +1,13 @@
 <idea-plugin>
     <id>org.example.Notifications</id>
     <name>Notifications</name>
-    <vendor email="2544324090@qq.com"/>
+    <vendor email="hongjinfeng@xxx.com"/>
 
     <description><![CDATA[
     <h1>Notifications<h1><br>
     <p>IntelliJ 平台中关于消息通知的项目Demo<p><br>
     ]]></description>
 
-    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
-         on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">

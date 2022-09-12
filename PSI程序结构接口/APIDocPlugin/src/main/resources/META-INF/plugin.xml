@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>org.example.JsonToJava</id>
-    <name>JsonToJava</name>
+    <id>org.example.APIDocPlugin</id>
+    <name>Plugin display name here</name>
     <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
     <description><![CDATA[
@@ -8,18 +8,18 @@
     <em>most HTML tags may be used</em>
     ]]></description>
 
+
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-
+        <!-- Add your extensions here -->
     </extensions>
-    <projectListeners>
 
-        <listener class="org.example.listener.ProjectInitListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-
-    </projectListeners>
     <actions>
-        <!-- Add your actions here -->
+        <action class="org.example.action.GenAPIDocAction" description="GenAPIDocAction"
+                text="GenAPIDocAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>
