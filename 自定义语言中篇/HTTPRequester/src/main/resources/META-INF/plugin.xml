@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>org.example.HTTPRequester</id>
+    <name>HTTP Requester</name>
+    <vendor email="hongjinfeng@xxx.com"/>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- implementationClass 属性：文件定义信息类路径-->
+        <!-- fieldName 属性：HTTPFileType 类中声明的单例对象字段名 -->
+        <!-- language 属性：语言名字，类似于 Java、Python-->
+        <!-- extensions 属性：文件拓展格式-->
+        <fileType
+                name="HTTP"
+                implementationClass="org.example.language.HTTPFileType"
+                fieldName="INSTANCE"
+                language="HTTP"
+                extensions="http"/>
+
+        <lang.parserDefinition
+                language="HTTP"
+                implementationClass="org.example.language.CURLParserDefinition"/>
+
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

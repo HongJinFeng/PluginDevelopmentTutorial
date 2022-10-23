@@ -1,0 +1,51 @@
+{
+  parserClass="org.example.language.CURLParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="CURL"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.example.language.psi"
+  psiImplPackage="org.example.language.psi.impl"
+
+  elementTypeHolderClass="org.example.language.CURLTypes"
+  elementTypeClass="org.example.language.CURLElementType"
+  tokenTypeClass="org.example.language.CURLTokenType"
+
+  tokens = [
+        // 空白字符，例如空格、制表符
+        WHITE_SPACE = 'regexp:\s+'
+        // URL 的正则匹配表达式
+        URL = 'regexp:(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]'
+        // 带有双引号的字符串正则表达式
+        QUOTED_STRING = "regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+        // 由 0-9、a-z、A-Z 组成的不带双引号的正则表达式
+        BASIC_STRING = "regexp:[0-9a-zA_Z]*"
+        // 注释的正则表达式，以 / 开头
+        COMMENT = 'regexp://.*'
+        // CURL 命令中的命令选项
+        OPTION = 'regexp:--append|-a|-A|--user-agent|-anyauth|-u|--user|-G|--get|-X|--request|--header|-H|--output|-o'
+        // HTTP 请求方法
+        METHOD = 'regexp:GET| HEAD| POST| PUT| DELETE| CONNECT| OPTIONS| TRACE'
+  ]
+}
+
+HttpFile ::= COMMAND*
+COMMAND ::= CURL [OPTIONS*] URL
+OPTIONS ::= Option1Statement | Option2Statement | Option3Statement | Option4Statement | Option5Statement | Option6Statement | Option7Statement
+Option1Statement ::= OPTION1 QUOTED_STRING
+OPTION1 ::= '-a'|'--append'
+Option2Statement ::= OPTION2 QUOTED_STRING
+OPTION2 ::= '-A'|'--user-agent'
+Option3Statement ::= OPTION3 KV
+OPTION3 ::= ('-anyauth') ('-u' | '--user')
+Option4Statement ::= OPTION4
+OPTION4 ::= '-G' | '--get'
+Option5Statement ::= OPTION5 METHOD
+OPTION5 ::= '-X'|'--request'
+Option6Statement ::= OPTION6 QUOTED_STRING
+OPTION6 ::= '-H'|'--header'
+Option7Statement ::= OPTION7 QUOTED_STRING
+OPTION7 ::= '-o'|'--output'
+
+KV ::= BASIC_STRING':'BASIC_STRING
