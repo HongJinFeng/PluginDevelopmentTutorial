@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>org.example.PluginI18N</id>
+    <name>Plugin display name here</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="NotifyAction" class="org.example.action.NotifyAction" text="I18n Message">
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+        </action>
+    </actions>
+</idea-plugin>
