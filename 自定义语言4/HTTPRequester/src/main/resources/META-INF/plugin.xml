@@ -5,7 +5,12 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
-
+    <description>
+        <![CDATA[
+        <h4>http requester</h4>
+        <p>1. Based on the curl command line tool, it supports initiating http requests.</p>
+    ]]>
+    </description>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- implementationClass 属性：文件定义信息类路径-->
@@ -49,6 +54,11 @@
         <lang.commenter
                 language="HTTP"
                 implementationClass="org.example.language.feature.CURLCommenter"/>
+
+        <codeInsight.inlayProvider
+                order="first"
+                language="HTTP"
+                implementationClass="org.example.language.feature.CURLInlayHintsProvider"/>
     </extensions>
 
     <actions>

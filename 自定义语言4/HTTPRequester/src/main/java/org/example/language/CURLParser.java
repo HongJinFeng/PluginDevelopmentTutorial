@@ -94,7 +94,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-a'|'--append'
   public static boolean OPTION1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION1")) return false;
     boolean r;
@@ -106,7 +105,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-A'|'--user-agent'
   public static boolean OPTION2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION2")) return false;
     boolean r;
@@ -118,7 +116,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ('-anyauth') ('-u' | '--user')
   public static boolean OPTION3(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION3")) return false;
     boolean r;
@@ -139,7 +136,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // '-u' | '--user'
   private static boolean OPTION3_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION3_1")) return false;
     boolean r;
@@ -149,7 +145,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-G' | '--get'
   public static boolean OPTION4(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION4")) return false;
     boolean r;
@@ -161,7 +156,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-X'|'--request'
   public static boolean OPTION5(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION5")) return false;
     boolean r;
@@ -173,7 +167,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-H'|'--header'
   public static boolean OPTION6(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION6")) return false;
     boolean r;
@@ -185,7 +178,6 @@ public class CURLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // '-o'|'--output'
   public static boolean OPTION7(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPTION7")) return false;
     boolean r;
